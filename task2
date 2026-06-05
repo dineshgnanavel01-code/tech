@@ -1,19 +1,18 @@
-// Variables, Comparison, Logical, Ternary
+//1  Variables, Comparison, Logical, Ternary
 let marks = 75;
 
 let result = marks >= 35 ? "Pass" : "Fail";
-console.log(result);
-//printting the results
 
-if (marks >= 90) {
-    console.log("Grade A");
-} else if (marks >= 75) {
-    console.log("Grade B");
-} else if (marks >= 60) {
-    console.log("Grade C");
-}
+let grade =
+    marks >= 90 ? "Grade A" :
+    marks >= 75 ? "Grade B" :
+    marks >= 60 ? "Grade C" :
+    "Fail";
 
-//Arithmetic, Assignment Operators
+console.log("Result :", result);
+console.log("Grade :", grade);
+
+// 2. Arithmetic, Assignment Operators
 let salary = 25000;
 let bonus = salary * 0.10;
 let finalSalary = salary + bonus;
@@ -24,7 +23,7 @@ console.log("Original Salary :", salary);
 console.log("Bonus :", bonus);
 console.log("Final Salary :", finalSalary);
 
-//logical operators
+// 3 logical operators
 let email = "admin@gmail.com";
 let password = "12345";
 
@@ -35,7 +34,7 @@ if (email === "admin@gmail.com" && password === "12345") {
     console.log("Login Failed");
 }
 
-//Arithmetic, Ternary
+//4 Arithmetic, Ternary
 let price = 2000;
 let finalAmount = price > 1000 ? price - (price * 0.20) : price;
 
@@ -43,7 +42,7 @@ let finalAmount = price > 1000 ? price - (price * 0.20) : price;
 console.log("Final Amount :", finalAmount);
 
 
-//Array
+// 5 Array
 let products = ["Laptop","Mobile","Mouse","Keyboard"];
 
 //printting the results
@@ -51,7 +50,7 @@ console.log("First Product :", products[0]);
 console.log("Last Product :", products[products.length - 1]);
 console.log("Total Products Count :", products.length);
 
-//object data type
+// 6 object data type
 
 let employee = {
     name:"Dinesh",
@@ -64,7 +63,7 @@ console.log("Employee Department :", employee.department);
 console.log("Employee Salary :", employee.salary);
 
 
-
+// 7  Arithmetic Operators
 let shirt = 500;
 let pant = 1000;
 let shoe = 1500;
@@ -79,7 +78,7 @@ console.log("Discount :", discount);
 console.log("Final Cost :", finalCost);
 
 
-// Comparison Operator
+// 8 Comparison Operator
 let age = 19;
 
 //printting the results
@@ -90,7 +89,7 @@ if (age >= 18) {
 }
 
 
-//Pre/Post Increment
+//9 Pre/Post Increment
 let a = 10;
 
 //printting the results
@@ -107,7 +106,7 @@ console.log("After a-- :", a);
 console.log("After --a :", a);
 
 
-//Boolean, Logical Operators
+// 10 Boolean, Logical Operators
 let isPresent = true;
 let completedTask = true;
 //printting the results
@@ -118,31 +117,29 @@ if (isPresent && completedTask) {
     console.log("Not Eligible");
 }
 
-
 //Bonus Company-Level Task
-let employee = {
-    id: 101,
-    name: "John",
-    department: "Development",
-    salary: 35000,
-    experience: 2
+
+let student = {
+    id:101,
+    name:"Dinesh",
+    department:"Development",
+    salary:35000,
+    experience:2
 };
 
-// Print employee details
-console.log("Employee ID :", employee.id);
-console.log("Employee Name :", employee.name);
-console.log("Department :", employee.department);
-console.log("Salary :", employee.salary);
-console.log("Experience :", employee.experience + " Years");
+let Share  = student.salary * 0.10;
+let EndSalary = student.salary + Share ;
 
-// Calculate bonus (10% of salary)
-let bonus = employee.salary * 0.10;
-console.log("Bonus :", bonus);
+let performanceStatus =
+    student.experience >= 2 ? "Good" : "Average";
 
-// Final salary after adding bonus
-let finalSalary = employee.salary + bonus;
-console.log("Final Salary :", finalSalary);
+console.log("Student ID :", student.id);
+console.log("Student Name :", student.name);
+console.log("Department :", student.department);
+console.log("Salary :", student.salary);
+console.log("Experience :", student.experience, "Years");
 
-// Performance status based on experience
-let performanceStatus = employee.experience >= 2 ? "Good" : "Average";
-console.log("Performance Status :", performanceStatus);
+console.log("\nShare :", Share );
+console.log("End Salary :", EndSalary);
+
+console.log("\nPerformance Status :", performanceStatus);
