@@ -27,13 +27,11 @@ console.log("Final Salary :", finalSalary);
 let email = "admin@gmail.com";
 let password = "12345";
 
-//printting the results
-if (email === "admin@gmail.com" && password === "12345") {
-    console.log("Login Success");
-} else {
-    console.log("Login Failed");
-}
-
+console.log(
+    email === "admin@gmail.com" && password === "12345"
+    ? "Login Success"
+    : "Login Failed"
+);
 //4 Arithmetic, Ternary
 let price = 2000;
 let finalAmount = price > 1000 ? price - (price * 0.20) : price;
