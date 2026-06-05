@@ -1,0 +1,136 @@
+// Variables, Comparison, Logical, Ternary
+let marks = 75;
+
+let result = marks >= 35 ? "Pass" : "Fail";
+console.log(result);
+//printting the results
+
+if (marks >= 90) {
+    console.log("Grade A");
+} else if (marks >= 75) {
+    console.log("Grade B");
+} else if (marks >= 60) {
+    console.log("Grade C");
+}
+
+//Arithmetic, Assignment Operators
+let salary = 25000;
+let bonus = salary * 0.10;
+let finalSalary = salary + bonus;
+
+//printting the results
+
+console.log("Original Salary :", salary);
+console.log("Bonus :", bonus);
+console.log("Final Salary :", finalSalary);
+
+//logical operators
+let email = "admin@gmail.com";
+let password = "12345";
+
+//printting the results
+if (email === "admin@gmail.com" && password === "12345") {
+    console.log("Login Success");
+} else {
+    console.log("Login Failed");
+}
+
+//Arithmetic, Ternary
+let price = 2000;
+let finalAmount = price > 1000 ? price - (price * 0.20) : price;
+
+//printting the results
+console.log("Final Amount :", finalAmount);
+
+
+//Array
+let products = ["Laptop","Mobile","Mouse","Keyboard"];
+
+//printting the results
+console.log("First Product :", products[0]);
+console.log("Last Product :", products[products.length - 1]);
+console.log("Total Products Count :", products.length);
+
+//object data type
+
+let employee = {
+    name:"Dinesh",
+    department:"Development",
+    salary:40000
+}
+//printting the results
+console.log("Employee Name :", employee.name);
+console.log("Employee Department :", employee.department);
+console.log("Employee Salary :", employee.salary);
+
+
+
+let shirt = 500;
+let pant = 1000;
+let shoe = 1500;
+
+let totalCost = shirt + pant + shoe;
+let discount = totalCost > 2000 ? totalCost * 0.10 : 0;
+let finalCost = totalCost - discount;
+
+//printting the results
+console.log("Total Cost :", totalCost);
+console.log("Discount :", discount);
+console.log("Final Cost :", finalCost);
+
+
+// Comparison Operator
+let age = 19;
+
+//printting the results
+if (age >= 18) {
+    console.log("Eligible for Voting");
+} else {
+    console.log("Not Eligible");
+}
+
+
+//Pre/Post Increment
+let a = 10;
+
+//printting the results
+a++;
+console.log("After a++ :", a);
+
+++a;
+console.log("After ++a :", a);
+
+a--;
+console.log("After a-- :", a);
+
+--a;
+console.log("After --a :", a);
+
+
+//Boolean, Logical Operators
+let isPresent = true;
+let completedTask = true;
+//printting the results
+
+if (isPresent && completedTask) {
+    console.log("Eligible for Salary");
+} else {
+    console.log("Not Eligible");
+}
+
+
+//Bonus Company-Level Task
+let employee = {
+    id: 101,
+    name: "John",
+    department: "Development",
+    salary: 35000,
+    experience: 2
+};
+
+// Print employee details
+console.log("Employee ID :", employee.id);
+console.log("Employee Name :", employee.name);
+console.log("Department :", employee.department);
+console.log("Salary :", employee.salary);
+console.log("Experience :", employee.experience + " Years");
