@@ -134,3 +134,15 @@ console.log("Employee Name :", employee.name);
 console.log("Department :", employee.department);
 console.log("Salary :", employee.salary);
 console.log("Experience :", employee.experience + " Years");
+
+// Calculate bonus (10% of salary)
+let bonus = employee.salary * 0.10;
+console.log("Bonus :", bonus);
+
+// Final salary after adding bonus
+let finalSalary = employee.salary + bonus;
+console.log("Final Salary :", finalSalary);
+
+// Performance status based on experience
+let performanceStatus = employee.experience >= 2 ? "Good" : "Average";
+console.log("Performance Status :", performanceStatus);
