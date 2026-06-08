@@ -38,13 +38,20 @@ if (marks >= 90 && marks <= 100) {
 
 
 //  Login Authentication System
+let username = "admin";
+let password = "12345";
 
-let username ="admin";
-let password ="12345";
-if (username === "admin" && password === "12345") {
-    console.log("Login successful! Welcome to your dashboard.");
+let user = "admin";     
+let pass = "12345";     
+
+if (user === username) {
+    if (pass === password) {
+        console.log("Login Success");
+    } else {
+        console.log("Invalid Password");
+    }
 } else {
-    console.log("Access denied. Invalid username or password");
+    console.log("Invalid Username");
 }
 
 // Task 4: ATM Withdrawal Machine
