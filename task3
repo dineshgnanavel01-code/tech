@@ -1,0 +1,197 @@
+// 1 Salary Calculation Program
+
+// Basic Salary
+basic_salary = 25000
+
+// HRA = 20% of salary
+hra = 0.20 * basic_salary
+
+// Bonus = 10% of salary
+bonus = 0.10 * basic_salary
+
+//  Total salary before tax
+total_salary = basic_salary + hra + bonus
+
+// Tax = 5% of total salary
+tax = 0.05 * total_salary
+
+//  Final salary after tax
+final_salary = total_salary - tax
+
+//  Print final salary
+console.log("Final Salary after tax:", final_salary)
+
+// Create a grading system for a college.
+
+let marks = 90;
+if (marks >= 90 && marks <= 100) {
+    console.log("Grade: A+");
+} else if (marks >= 80 && marks < 90) {
+    console.log("Grade: A");
+} else if (marks >= 70 && marks < 80) {
+    console.log("Grade: B");
+} else if (marks >= 60 && marks < 70) {
+    console.log("Grade: C");
+} else {
+    console.log("Grade: Fail");
+}
+
+
+//  Login Authentication System
+
+let username ="admin";
+let password ="12345";
+if (username === "admin" && password === "12345") {
+    console.log("Login successful! Welcome to your dashboard.");
+} else {
+    console.log("Access denied. Invalid username or password");
+}
+
+// Task 4: ATM Withdrawal Machine
+
+let accountBalence = 5000;
+let withdrawalAmount = 2000;
+
+if (withdrawalAmount <= accountBalence) {
+    accountBalence -= withdrawalAmount;
+    console.log("Withdrawal successful! Your remaining balance is: " + accountBalence);
+}
+
+
+//Task 5: E-Commerce Discount System
+let amount = 12000;
+let discountRate = 0;
+
+if (amount >= 10000) {
+    discountRate = 20;
+} else if (amount >= 5000) {
+    discountRate = 10;
+} else if (amount >= 2000) {
+    discountRate = 5;
+} else {
+    discountRate = 0;
+}
+
+let discount = (amount * discountRate) / 100;
+let finalAmount = amount - discount;
+
+console.log("Original Amount: " + amount);
+console.log("Discount: " + discount);
+console.log("Final Amount: " + finalAmount);
+
+
+//Task 6: Traffic Fine Checker
+let helmet = "no";
+let license = "no";
+let fine = 4000;
+
+if (helmet === "no" && license === "no") {
+    fine = 3000;
+} else if (helmet === "no") {
+    fine = 1000;
+} else if (license === "no") {
+    fine = 2000;
+} else {
+    fine = 0;
+}
+
+console.log("Helmet: " + helmet);
+console.log("License: " + license);
+console.log("Fine Amount: " + fine);
+
+
+
+//Task 7: Employee Attendance Tracker
+
+
+let attendance = ["P", "P", "A", "P", "A", "P", "P"];
+
+let presentCount = 0;
+let absentCount = 0;
+
+for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i] === "P") {
+        presentCount++;
+    } else if (attendance[i] === "A") {
+        absentCount++;
+    }
+}
+
+console.log("Present Days : " + presentCount);
+console.log("Absent Days : " + absentCount);
+
+
+
+// Task 8: Product Inventory Management
+
+let Product = {
+ProductName: "Laptop",
+Price: 50000,
+Quantity: 10
+}
+for (let ProductName in Product) {
+    console.log(ProductName);
+    console.log(Product[ProductName]);
+
+}
+
+
+// Task 9: Cab Fare Calculator
+
+let First5kmFare = 20;
+let Next5kmFare = 15;
+let Above10kmFare = 10;
+let distance = 12;
+
+let fare = 0;
+
+if (distance <= 5) {
+    fare = distance * 20;
+} 
+else if (distance <= 10) {
+    fare = (5 * 20) + (distance - 5) * 15;
+} 
+else {
+    fare = (5 * 20) + (5 * 15) + (distance - 10) * 10 + 15;
+}
+
+console.log("Total Fare : ₹" + fare);
+
+
+// 10 Task 10: Mini Employee Management System (Real Company Task)
+
+
+let employees = [
+    { id: 1, name: "Dinesh", salary: 25000 },
+    { id: 2, name: "Surya", salary: 30000 },
+    { id: 3, name: "Karthik", salary: 40000 }
+];
+
+// Initial values
+let totalEmployees = employees.length;
+let totalSalary = 0;
+
+let highest = employees[0];
+let lowest = employees[0];
+
+// Print all employees + calculations
+for (let i = 0; i < employees.length; i++) {
+    console.log(employees[i]);
+
+    totalSalary += employees[i].salary;
+
+    if (employees[i].salary > highest.salary) {
+        highest = employees[i];
+    }
+
+    if (employees[i].salary < lowest.salary) {
+        lowest = employees[i];
+    }
+}
+
+
+
+console.log("Highest Salary Employee: ", highest);
+console.log("Lowest Salary Employee: ", lowest);
+console.log("Total Employees: " + totalEmployees);
+console.log("Total Salary Expenditure: " + totalSalary);
