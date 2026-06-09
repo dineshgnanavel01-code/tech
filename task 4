@@ -1,13 +1,327 @@
 // Task 1: Age Category Finder
+let age = 30;
 
-if (age>=0 && age<=12) {
+if (age >= 0 && age <= 12) {
     console.log("Child");
-} else if (age>=13 && age<=19) {
+} else if (age >= 13 && age <= 19) {
     console.log("Teenager");
-} else if (age>=20 && age<=59) {
+} else if (age >= 20 && age <= 59) {
     console.log("Adult");
-} else if (age>=60) {
+} else if (age >= 60) {
     console.log("Senior Citizen");
 } else {
-    console.log("Invalid age entered");
+    console.log("Invalid age");
+}
+
+
+//Task 2: Salary Hike Calculator
+
+let salary = 60000;
+let hike = 0;
+
+if (salary < 20000) {
+    newSalary = salary + (salary * 20 / 100);
+} else if (salary <= 50000) {
+    newSalary = salary + (salary * 10 / 100);
+} else { salary > 50000
+    newSalary = salary + (salary * 5 / 100);
+}
+
+console.log("Old Salary: " + salary);
+console.log("New Salary: " + newSalary);
+
+
+// Task 3: Electricity Department
+
+let units = 400;
+let bill = 0;
+
+if (units <=100) {
+    bill = units * 5;
+} else if (units <= 200) {
+    bill = (100 * 5) + ((units - 100)*7);
+} else {
+    bill = (100 * 5) + (100 * 7) + ((units - 200) * 10);
+}
+console.log("Electricity Bill: " + bill);
+
+
+//  Task 4: Simple ATM
+
+let Balence = 10000;
+let widrawalAmount1 = 6000;
+
+if (widrawalAmount1 <= Balence) {
+    Balence = Balence - widrawalAmount1;
+    console.log("Widrawal Successful. Remaining Balence: " + Balence);
+     
+}
+
+// Task 5: Login Validation
+
+let username ="admin";
+let password ="25708";
+
+let inputUsername ="admin";
+let inputPassword ="25708";
+
+if (inputUsername === username && inputPassword === password){
+   console.log("Login Successfull. Welcome " + inputUsername);
+}
+
+
+
+//Task 6: Mobile Recharge Offer
+
+let RechargeAmount = 399;
+let offer ="0";
+
+if (RechargeAmount >= 499) {
+    offer = "Netflix Offer";
+} else if (RechargeAmount >= 299) {
+    offer = "2GB Extra Data";
+} else {
+    offer = "No Offer";
+}
+console.log("RechargeAmount: " + RechargeAmount);
+console.log("offer: "+ offer);
+
+// Task 7: Traffic Signal System
+
+let signalColor ="Red";
+
+switch (signalColor) {
+     case "Red": console.log("stop");
+     case "Yellow": console.log("Ready");
+     case "Green": console.log("Go");
+
+}
+
+
+// Task 8: Employee Attendance
+
+let workingDays = 31;
+let presentDays = 22;
+
+let attendancePercentage = (presentDays / workingDays) * 100;
+console.log("Attendance Percentage: " + attendancePercentage.toFixed(2) + "%");
+
+if (attendancePercentage >= 75) {
+    console.log("Eligible");
+} else if (attendancePercentage < 75) {
+    console.log("Not Eligible");
+}
+
+
+
+
+//Task 9: Bus Ticket Booking
+
+let ticketprice = "500";
+let NumberOfTickets ="4"
+
+let totalcost = ticketprice * NumberOfTickets;
+console.log("Total Cost: "+ totalcost);
+ let GST = totalcost * 0.5/100;
+ console.log("GST:" + GST);
+    let finalCost = totalcost + GST;
+    console.log("Final Cost: " + finalCost);
+    
+
+//Task 10: Restaurant Bill
+
+let FoodCost = 800;
+let finalBill;
+
+if (FoodCost > 2000) {
+    finalBill = FoodCost - (FoodCost * 0.10);
+} else {
+    finalBill = FoodCost;
+}
+
+console.log("Final Bill: " + finalBill);
+
+
+// Task 11: Police Recruitment
+
+let age1= "16";
+let Height = "170";
+let Weight = "65";
+
+if (age1>=18){
+if (Height >=160) {
+if (Weight >=55){
+       console.log("Eligible");
+        } else {
+            console.log("Rejected: Weight is less than 65 kg");
+        }
+    } else {
+        console.log("Rejected: Height is less than 170 cm");
+    }
+} else {
+    console.log("Rejected: Age1 is less than 16");
+}
+
+
+//Task 12: Student Result
+
+let Tamil = 90;
+let English = 90;
+let Maths = 70;
+let Science = 99;
+let Social = 100;
+
+// Total calculation
+let Total = Tamil + English + Maths + Science + Social;
+
+// Percentage calculation (out of 500)
+let percentage = (Total / 500) * 100;
+
+console.log("Total =", Total);
+console.log("Percentage =", percentage);
+
+if (percentage >= 90) {
+    console.log("Grade: A+");
+} else if (percentage >= 80) {
+    console.log("Grade: A");
+} else if (percentage >= 70) {
+    console.log("Grade: B");
+} else if (percentage >= 60) {
+    console.log("Grade: C");
+} else {
+    console.log("Grade: Fail");
+}
+
+
+//Task 13: Employee Shift Finder
+
+let time = 8;
+
+if (time >= 6 && time < 14) {
+    console.log("Morning Shift");
+} 
+else if (time >= 14 && time < 22) {
+    console.log("Afternoon Shift");
+} 
+else if ((time >= 22 && time <= 23) || (time >= 0 && time < 6)) {
+    console.log("Night Shift");
+} 
+else {
+    console.log("Invalid time");
+}
+
+
+//Task 14: Loan Eligibility
+let age2= 25;
+let salary2= 50000;
+let experience = 5;
+
+if (age2>= 21) {
+    if (salary >= 25000) {
+        if (experience >= 2) {
+            console.log("Eligible");
+        } else {
+            console.log("Not Eligible: Experience less than 2 years");
+        }
+    } else {
+        console.log("Not Eligible: Salary2less than 25000");
+    }
+} else {
+    console.log("Not Eligible: Age21 less than 18");
+}
+
+
+
+
+//Task 15: Cab Fare Calculator
+
+let distance = 40;
+
+
+let fare = 0;
+
+if (distance <= 5) {
+    fare = distance * 20;
+} else {
+    fare = (5 * 20) + ((distance - 5) * 15);
+}
+
+console.log("Total Fare =", fare);
+
+//Task 16: Multiplication Table Generator
+
+let Number = 7;
+for (let i = 1; i <= 10; i++) {
+    console.log(Number + "X"+ i + " =" + (Number + i));
+}
+
+
+//Task 17: Password Checker
+
+let length = 2570123;
+
+if (length < 6) {
+    console.log("Weak");
+} 
+else if (length >= 6 && length <= 10) {
+    console.log("Medium");
+} 
+else {
+    console.log("Strong");
+}
+
+
+
+//Task 18: Company Bonus System
+
+let salary3= 40000;
+let experience2= 2;
+
+let bonus = 0;
+
+if (experience2<= 2) {
+    bonus = salary3* 0.05;
+} 
+else if (experience2>= 3 && experience2<= 5) {
+    bonus = salary3* 0.10;
+} 
+else {
+    bonus = salary * 0.20;
+}
+
+console.log("Bonus =", bonus);
+console.log("Total Salary =", salary3+ bonus);
+
+
+//Task 19: Countdown Timer
+
+
+let i = 10;
+
+while (i >= 1) {
+    console.log(i);
+    i--;
+}
+
+console.log("Happy New Year");
+
+//Task 20: Interview Selection System
+
+
+let degreeCompleted = true;
+let communication = "Good";
+let technicalScore = 65;
+
+if (degreeCompleted == true) {
+    if (communication == "Good") {
+        if (technicalScore >= 70) {
+            console.log("Eligible");
+        } else {
+            console.log("Not Eligible: Technical score less than 70");
+        }
+    } else {
+        console.log("Not Eligible: Communication is not good");
+    }
+} else {
+    console.log("Not Eligible: Degree not completed");
 }
