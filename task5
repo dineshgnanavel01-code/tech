@@ -974,15 +974,15 @@ let mobiles = [
 
 console.log("Mobile Names:");
 
-mobiles.forEach(m => {
-  console.log(m.model2);
+mobiles.forEach(t => {
+  console.log(t.model2);
 });
 
 
 //2. Calculate total stock value.
 
 let totalValue4= mobiles.reduce(
-  (sum, m) => sum + (m.price3 * m.stock3),
+  (sum, t) => sum + (t.price3 * t.stock3),
   0
 );
 
@@ -993,9 +993,9 @@ console.log("Total Stock Value: ₹" + totalValue4);
 
 console.log("Mobiles above ₹20,000:");
 
-mobiles.forEach(m => {
-  if (m.price3 > 20000) {
-    console.log(m.model2 + " - ₹" + m.price3);
+mobiles.forEach(t => {
+  if (t.price3 > 20000) {
+    console.log(t.model2 + " - ₹" + t.price3);
   }
 });
 
@@ -1003,10 +1003,10 @@ mobiles.forEach(m => {
 //4. Use switch statement for brand category.
 
 
-mobiles.forEach(m => {
+mobiles.forEach(t => {
   let category;
 
-  switch (m.brand1) {
+  switch (t.brand1) {
     case "Apple":
       category = "Premium Brand";
       break;
@@ -1026,7 +1026,7 @@ mobiles.forEach(m => {
       category = "Unknown Brand";
   }
 
-  console.log(m.brand1 + " → " + category);
+  console.log(t.brand1 + " → " + category);
 });
 
 
