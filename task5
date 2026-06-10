@@ -753,28 +753,13 @@ let eligible = student7.filter(s =>
 );
 
 
-//2.3. Eligibility check + count
-let eligibleCount = 0;
+// 3. Count eligible students
+let eligibleCount = eligible.length;
 
-console.log("Eligibility Result:");
-
-student7.forEach(s => {
-  const name = s.name || s.name4;
-  const age = s.age || s.age4;
-
-  if (age >= 18 && s.percentage >= 60) {
-    console.log(name + " → Eligible");
-    eligibleCount++;
-  } else {
-    console.log(name + " → Not Eligible");
-  }
-});
-
-console.log("Total Eligible Student7:",eligibleCount);
+console.log("Eligible Count:", eligibleCount);
 
 
 //4. Use switch statement for department names.
-
 
 student7.forEach(s => {
   const name = s.name || s.name4;
