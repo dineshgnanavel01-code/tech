@@ -1,6 +1,6 @@
 // Task 1: Student Management System
 
-const students = [
+let students = [
   {
     id: 1,
     name: "Arun",
@@ -38,11 +38,11 @@ console.log("Student Names:");
 students.forEach(student => console.log(student.name));
 
 // 2. Calculate total marks
-const totalMarks = students.reduce((sum, student) => sum + student.mark, 0);
+let totalMarks = students.reduce((sum, student) => sum + student.mark, 0);
 console.log("Total Marks:", totalMarks);
 
 // 3. Find students who scored above 80
-const above80 = students.filter(student => student.mark > 80);
+let above80 = students.filter(student => student.mark > 80);
 console.log("Students Scoring Above 80:");
 above80.forEach(student => console.log(student.name));
 
@@ -55,18 +55,1000 @@ function getGrade(mark) {
 }
 
 // 5. Function to print student details
-function printStudentDetails(student) {
-  console.log(`
-ID: ${student.id}
-Name: ${student.name}
-Department: ${student.department}
-Mark: ${student.mark}
-Grade: ${getGrade(student.mark)}`);
+
+function printStudents(list) {
+  list.forEach(student => {
+    console.log("ID:", student.id);
+    console.log("Name:", student.name);
+    console.log("Department:", student.department);
+    console.log("Mark:", student.mark);
+    console.log("----------------------");
+  });
 }
 
-console.log("Student Details:");
-students.forEach(printStudentDetails);
-
+// Call function
+printStudents(students);
 
 // Task 2: Employee Payroll System
+
+
+let employees = [
+  {
+    id2 : 101,
+    name2: "Ravi",
+    salary: 45000,
+    department1: "IT"
+  },
+  {
+    id3: 102,
+    name3: "Praveen",
+    salary: 28000,
+    department2: "HR"
+  },
+  {
+    id4: 103,
+    name4: "Arun",
+    salary: 35000,
+    department3: "Finance"
+  },
+  {
+    id5: 104,
+    name5: "Dharani",
+    salary: 50000,
+    department4: "IT"
+  },
+  {
+    id6: 105,
+    name6: "Karthik",
+    salary: 25000,
+    department5: "Marketing"
+  }
+];
+
+// 1.Print all employee names.
+
+employees.forEach(emp => {
+let name =
+    emp.name2 ||
+    emp.name3 ||
+    emp.name4 ||
+    emp.name5 ||
+    emp.name6;
+
+  console.log(name);
+});
+
+//2. Calculate total company salary expense.
+
+let totalSalaryExpense = employees.reduce(
+(total, employee) => total + employee.salary, 0
+
+);
+console.log("Total Company Salary Expense: ₹" + totalSalaryExpense);
+
+
+//3. Display employees earning above ₹30,000.
+
+
+employees.forEach(emp => {
+  if (emp.salary > 30000) {
+    let  name = Object.keys(emp)
+      .find(key => key.startsWith("name"));
+
+    console.log(`${emp[name]} - ₹${emp.salary}`);
+  }
+});
+
+
+//4.Use switch statement for department descriptions.
+
+for (let emp of employees) {
+
+  let dept = Object.values(emp).find(
+    value => value === "IT" || value === "HR" || value === "Finance" || value === "Marketing"
+  );
+  let name = Object.values(emp).find(value => typeof value === "string" && value !== dept);
+
+if (emp.salary > 30000) {
+
+    switch (dept) {
+      case "IT":
+        dept = "IT Department";
+        break;
+      case "HR":
+        dept = "HR Department";
+        break;
+      case "Finance":
+        dept = "Finance Department";
+        break;
+      case "Marketing":
+        dept = "Marketing Department";
+        break;
+    }
+
+    console.log("Employee:", name);
+    console.log("Salary: ₹" + emp.salary);
+    console.log("Department:", dept);
+    console.log("------------------");
+  }
+}
+
+// 5. Create a callback function to generate payroll reports.
+
+function payrollReport(emp) {
+
+  let  nameKey = Object.keys(emp).find(key => key.startsWith("name"));
+  let  deptKey = Object.keys(emp).find(key => key.startsWith("department"));
+
+  let  name = emp[nameKey];
+  let  dept = emp[deptKey];
+
+  let deptDesc;
+
+  switch (dept) {
+    case "IT":
+      deptDesc = "Information Technology";
+      break;
+    case "HR":
+      deptDesc = "Human Resources";
+      break;
+    case "Finance":
+      deptDesc = "Finance Department";
+      break;
+    case "Marketing":
+      deptDesc = "Marketing Department";
+      break;
+    default:
+      deptDesc = "Unknown Department";
+  }
+
+  console.log(`${name} | ₹${emp.salary} | ${deptDesc}`);
+}
+
+// higher-order function
+function generatePayroll(employees, callback) {
+  for (let emp of employees) {
+    callback(emp);
+  }
+}
+
+// call function
+generatePayroll(employees, payrollReport);
+
+
+//Task 3: Online Food Order Syste
+
+let foods = [
+  { id: 1, 
+    foodName: "Burger", 
+    price: 150, 
+    category: "FastFood" },
+
+
+  { id: 2, 
+    foodName: "Pizza",
+     price: 300, 
+     category: "FastFood" },
+
+  { id: 3,
+     foodName: "Biryani", 
+     price: 250, 
+     category: "Indian" },
+
+  { id: 4, 
+    foodName: "Ice Cream", 
+    price: 120, 
+    category: "Dessert" },
+
+  { id: 5, 
+    foodName: "Pasta",
+     price: 220, 
+     category: "Italian" }
+    
+];
+
+//1. Display all food names.
+
+console.log("Food Menu:");
+
+foods.forEach(item => {
+  console.log(item.foodName);
+});
+
+// 2.Calculate total menu value.
+
+const totalValue = foods.reduce((sum, item) => sum + item.price, 0);
+
+console.log("Total Menu Value: ₹" + totalValue);
+
+//3. Show foods above ₹200.
+console.log("Foods above ₹200:");
+
+foods.forEach(item => {
+  if (item.price > 200) {
+    console.log(`${item.foodName} - ₹${item.price}`);
+  }
+});
+
+
+
+
+//4. Use switch statement for category descriptions.
+foods.forEach(item => {
+  let categoryDesc;
+
+  switch (item.category) {
+    case "FastFood":
+      categoryDesc = "Fast Food Items";
+      break;
+    case "Indian":
+      categoryDesc = "Indian Cuisine";
+      break;
+    case "Dessert":
+      categoryDesc = "Sweet Desserts";
+      break;
+    case "Italian":
+      categoryDesc = "Italian Cuisine";
+      break;
+    default:
+      categoryDesc = "Other Category";
+  }
+
+  console.log(`${item.foodName} → ${categoryDesc}`);
+});
+
+// 5.Create an order confirmation callback function
+
+// callback function
+function orderConfirmation(food) {
+  console.log(`Order Confirmed: ${food.foodName} for ₹${food.price}`);
+}
+
+// higher-order function
+function placeOrder(foods, callback) {
+  for (let item of foods) {
+    callback(item);
+  }
+}
+
+// call function
+placeOrder(foods, orderConfirmation);
+
+
+
+
+// Task 4: Movie Ticket Booking System
+
+let movies = [
+  { movieName: "Leo", 
+    ticketPrice: 150, 
+    availableSeats: 10, 
+    language: "Tamil" },
+
+  { movieName: "Jawan", 
+    ticketPrice: 200,
+     availableSeats: 0,
+      language: "Hindi" },
+
+  { movieName: "Avengers", 
+    ticketPrice: 250,
+     availableSeats: 5, 
+     language: "English" },
+
+  { movieName: "Kalki", 
+    ticketPrice: 180, 
+    availableSeats: 3, 
+    language: "Telugu" }
+];
+
+// 1. Display all movie names
+
+console.log("Movie Names:");
+
+movies.forEach(movie => {
+  console.log(movie.movieName);
+});
+
+
+//2. Calculate total available seats
+
+let totalSeats = movies.reduce((sum, movie) => sum + movie.availableSeats, 0);
+
+console.log("Total Available Seats:", totalSeats);
+
+
+// 3. Check whether booking is possible.
+
+
+console.log("Booking Status:");
+
+movies.forEach(movie => {
+  if (movie.availableSeats > 0) {
+    console.log(`${movie.movieName}: Booking Available`);
+  } else {
+    console.log(`${movie.movieName}: Sold Out`);
+  }
+});
+
+
+//4.Use switch statement for movie language.
+
+
+movies.forEach(movie => {
+  let langDesc;
+
+  switch (movie.language) {
+    case "Tamil":
+      langDesc = "Tamil Language Movie";
+      break;
+    case "Hindi":
+      langDesc = "Hindi Language Movie";
+      break;
+    case "English":
+      langDesc = "English Language Movie";
+      break;
+    case "Telugu":
+      langDesc = "Telugu Language Movie";
+      break;
+    default:
+      langDesc = "Other Language Movie";
+  }
+
+  console.log(`${movie.movieName} → ${langDesc}`);
+});
+
+
+// 5.Generate booking confirmation using callback.
+
+// callback function
+function bookingConfirmation(movie) {
+  if (movie.availableSeats > 0) {
+    console.log(`Booking Confirmed for ${movie.movieName}`);
+  } else {
+    console.log(`Booking Failed for ${movie.movieName} (Sold Out)`);
+  }
+}
+
+// higher-order function
+function bookMovie(movies, callback) {
+  movies.forEach(movie => {
+    callback(movie);
+  });
+}
+
+// call function
+bookMovie(movies, bookingConfirmation);
+
+
+//Task 5: Hospital Patient Records
+
+let patient  = [
+  { patientId: 501 , 
+    patientName: "Ajith", 
+    age: 45, 
+    disease: "Diabetes" },
+
+  { patientId: 502, 
+    patientName: "karan",
+     age: 30,
+    disease: "Fever" },
+
+  { patientId:  503 ,
+    patientName: "siva",
+    age: 45, 
+     disease: "Blood Pressure" },
+
+  { patientId: 504 , 
+    patientName: "kumar", 
+    age: 45, 
+    disease: "Heart Disease" }
+];
+
+
+//1.Display all patient names.
+
+patient.forEach(patient => {
+  console.log(patient.patientName);
+});
+
+
+//2. Count total patients
+
+console.log("Total Patient:", patient.length);
+
+
+//3. Print patients above age 60.
+
+console.log("Patient above age 60:");
+
+patient.forEach(patient => {
+  if (patient.age > 60) {
+    console.log(patient.patientName + " - Age: " + patient.age);
+  }
+});
+
+
+// 4. Use switch statement for disease departments.
+
+patient.forEach(patient => {
+  let diseaseDesc1;
+
+  switch (patient.disease) {
+    case "Diabetes":
+      diseaseDesc1 = "Diabetes Patient";
+      break;
+    case "Fever":
+      diseaseDesc1 = "Fever Patient";
+      break;
+    case "Blood Pressure":
+      diseaseDesc1 = "BP Patient";
+      break;
+    case "Heart Disease":
+      diseaseDesc1 = "Heart Patient";
+      break;
+    case "Cold":
+      diseaseDesc1 = "Cold Patient";
+      break;
+    default:
+      diseaseDesc1 = "General Patient";
+  }
+
+  console.log(`${patient.patientName} → ${diseaseDesc1}`);
+});
+
+
+//5 Create a callback function for appointment confirmation.
+
+function patientReport(patient) {
+  console.log(
+    patient.patientName + " | Age: " + patient.age + " | Disease: " + patient.disease
+  );
+}
+
+function generateReport(list, callback) {
+  list.forEach(patient => {
+    callback(patient);
+  });
+}
+
+generateReport(patient, patientReport);
+
+
+// Task 6: Library Management System
+
+let books = [
+
+  { bookId: 5,
+     bookName: "Wings of Fire",
+      author: "A. P. J. Abdul Kalam", price: 250 },
+
+  { bookId: 6,
+     bookName: "Harry Potter", 
+    author: "J. K. Rowling", 
+    price: 500 },
+
+  { bookId: 7,
+     bookName: "Rich Dad Poor Dad", 
+     author: "Robert Kiyosaki",
+      price: 300 },
+
+  { bookId: 8,
+     bookName: "The Alchemist", 
+     author: "Paulo Coelho", 
+     price: 200 },
+  
+];
+
+//1.Display all book names.
+
+console.log("Book Names:");
+
+books.forEach(book => {
+  console.log(book.bookName);
+});
+
+
+// 2. Calculate total book value.
+
+let totalValue1=books.reduce((sum, book) => sum + book.price, 0);
+
+console.log("Total Book Value: ₹" + totalValue);
+
+
+//3. Display books above ₹500.
+
+console.log("Books above ₹500:");
+
+books.forEach(book => {
+  if (book.price > 500) {
+    console.log(book.bookName + " - ₹" + book.price);
+  }
+});
+
+// 4.Use switch statement for book categories.
+
+books.forEach(book => {
+  let categoryDesc;
+
+  switch (book.category) {
+    case "Biography":
+      categoryDesc = "Real Life Story";
+      break;
+    case "Fantasy":
+      categoryDesc = "Fictional Magical World";
+      break;
+    case "Finance":
+      categoryDesc = "Money & Investment";
+      break;
+    case "Fiction":
+      categoryDesc = "Story Based Novel";
+      break;
+    case "Self Help":
+      categoryDesc = "Personal Development";
+      break;
+    default:
+      categoryDesc = "Other Category";
+  }
+
+  console.log(`${book.bookName} → ${categoryDesc}`);
+});
+
+//5.Create a function to issue a book.
+
+
+function issueBook(bookId) {
+  const book = books.find(b => b.bookId === bookId);
+
+  if (book) {
+    console.log(`Book Issued: ${book.bookName} by ${book.author}`);
+  } else {
+    console.log("Book not found");
+  }
+}
+
+issueBook(6);
+
+
+//Task 7: E-Commerce Product Dashboard
+
+let products= [
+  { productId: 1,
+     productName: "Laptop",
+      price: 50000,
+      stock: 5 },
+
+  { productId: 2,
+     productName: "Mobile", 
+     price: 20000, 
+     stock: 15 },
+
+  { productId: 3,
+     productName: "Headphones",
+      price: 2000,
+       stock: 8 },
+
+  { productId: 4,
+     productName: "Keyboard", 
+     price: 1500,
+      stock: 20 },
+
+  { productId: 5,
+     productName: "Mouse",
+      price: 800,
+       stock: 3 }
+];
+
+
+// 1. Display all product list.
+
+console.log("Product List:");
+
+products.forEach(p => {
+  console.log(p.productName);
+});
+
+//2. Calculate inventory value.
+
+let totalValue5 = products.reduce(
+  (sum, p) => sum + (p.price * p.stock),
+  0
+);
+
+console.log("Total Inventory Value5: ₹" + totalValue5);
+
+//3. Find products with stock less than 10.
+
+console.log("Low Stock Products (<10):");
+
+products.forEach(p => {
+  if (p.stock < 10) {
+    console.log(`${p.productName} - Stock: ${p.stock}`);
+  }
+});
+
+
+//4. Display stock status.
+
+
+products.forEach(p => {
+  let status;
+
+  if (p.stock === 0) {
+    status = "Out of Stock";
+  } else if (p.stock < 10) {
+    status = "Low Stock";
+  } else {
+    status = "In Stock";
+  }
+
+  console.log(`${p.productName} → ${status}`);
+});
+
+
+//5. Generate product report using callback function.
+
+// callback function
+function productReport(product) {
+  console.log(
+    `${product.productName} | Price: ₹${product.price} | Stock: ${product.stock}`
+  );
+}
+
+// higher-order function
+function generateReport(list, callback) {
+  list.forEach(product => {
+    callback(product);
+  });
+}
+
+// call function
+generateReport(products, productReport);
+
+//Task 8: College Admission System
+
+let student7= [
+
+  { name: "Karthik",
+     age: 22,
+      percentage: 95,
+     department4 : "IT"},
+
+ { name4: "Surya",
+     age4: 21,
+      percentage: 55,
+      department4: "Mechanical" },
+
+  { name4: "Hari",
+     age4: 23,
+      percentage: 85,
+      department4:" ECE" },
+
+ { name4: "Mani",
+     age4: 24,
+      percentage: 75,
+      department4: "Electronics" },
+
+ { name4: "Karthik",
+     age4: 20,
+      percentage: 87,
+      department4: "Civil" },
+      ];
+
+
+
+
+ //1.  Display applicant names.
+console.log("Applicant Names:");
+
+student7.forEach(s => {
+  const name = s.name || s.name4;
+  console.log(name);
+});
+
+
+//3. Eligibility check + count
+let eligibleCount = 0;
+
+console.log("Eligibility Result:");
+
+student7.forEach(s => {
+  const name = s.name || s.name4;
+  const age = s.age || s.age4;
+
+  if (age >= 18 && s.percentage >= 60) {
+    console.log(name + " → Eligible");
+    eligibleCount++;
+  } else {
+    console.log(name + " → Not Eligible");
+  }
+});
+
+console.log("Total Eligible Student7:",eligibleCount);
+
+
+//4. Use switch statement for department names.
+
+
+student7.forEach(s => {
+  const name = s.name || s.name4;
+  const dept = s.department4;
+
+  let deptName;
+
+  switch (dept.trim()) {
+    case "IT":
+      deptName = "Information Technology";
+      break;
+    case "ECE":
+      deptName = "Electronics & Communication";
+      break;
+    case "Mechanical":
+      deptName = "Mechanical Engineering";
+      break;
+    case "Electronics":
+      deptName = "Electronics Engineering";
+      break;
+    case "Civil":
+      deptName = "Civil Engineering";
+      break;
+    default:
+      deptName = "Unknown Department";
+  }
+
+  console.log(name + " → " + deptName);
+});
+
+
+//5. Generate admission result using callback.
+
+// callback function
+function admissionResult(student) {
+  const name = student.name || student.name4;
+  const age = student.age || student.age4;
+
+  if (age >= 18 && student.percentage >= 60) {
+    console.log(name + " → ADMISSION GRANTED 🎉");
+  } else {
+    console.log(name + " → ADMISSION REJECTED ❌");
+  }
+}
+
+// higher-order function
+function processAdmission(list, callback) {
+  list.forEach(student => {
+    callback(student);
+  });
+}
+
+// call function
+processAdmission(student7, admissionResult);
+
+
+// Task 9: Bus Reservation System
+
+
+let passengers = [
+  {
+    passengerId8: 1,
+    name8: "Arun",
+    seatNumber8: 1,
+    ticketPrice8: 500,
+    busType8: "AC" },
+
+  {
+    passengerId8: 2,
+    name8: "Surya",
+    seatNumber8: 2,
+    ticketPrice8: 400,
+    busType8: "Non-AC"  },
+
+  {
+    passengerId8: 3,
+    name8: "Rahul",
+    seatNumber8: 3,
+    ticketPrice8: 600,
+    busType8: "Sleeper"  },
+
+  {
+    passengerId8: 4,
+    name8: "Mani",
+    seatNumber8: 4,
+    ticketPrice8: 450,
+    busType8: "AC" },
+
+  {
+    passengerId8: 5,
+    name8: "Karthik",
+    seatNumber8: 5,
+    ticketPrice8: 550,
+    busType8: "Sleeper" }
+
+];
+//1.Display passenger names.
+
+console.log("Passenger Names:");
+
+passengers.forEach(p => {
+
+});
+
+//2.Calculate total collection
+
+let total = passengers.reduce(
+  (sum, p) => sum + p.ticketPrice8,
+  0
+);
+
+console.log("Total Collection: ₹" + total);
+
+//3. Check occupied seats.
+
+console.log("Occupied Seats:");
+
+passengers.forEach(p => {
+
+  console.log(`Seat ${p.seatNumber8} → ${p.name8}`);
+});
+
+
+// 4. Use switch statement for bus types.
+
+passengers.forEach(p => {
+
+  let type;
+
+  switch (p.busType8) {
+    case "AC":
+      type = "Air Conditioned Bus";
+      break;
+    case "Non-AC":
+      type = "Non Air Conditioned Bus";
+      break;
+    case "Sleeper":
+      type = "Sleeper Coach Bus";
+      break;
+    default:
+      type = "Unknown Type";
+  }
+
+  console.log(`${p.name8} → ${type}`);
+});
+
+// 5. Generate ticket confirmation using callback.
+
+passengers.forEach(p => {
+
+
+  switch (p.busType8) {
+    case "AC":
+      type = "Air Conditioned Bus";
+      break;
+    case "Non-AC":
+      type = "Non Air Conditioned Bus";
+      break;
+    case "Sleeper":
+      type = "Sleeper Coach Bus";
+      break;
+    default:
+      type = "Unknown Type";
+  }
+
+  console.log(`${p.name8} → ${type}`);
+});
+
+
+
+// Task 10: Mobile Store Managemen
+
+let mobiles = [
+  { brand1: "Apple",
+     model2: "iPhone 14",
+      price3: 70000, 
+      stock3: 5 },
+
+  { brand1: "Samsung",
+     model2: "Galaxy S23",
+      price3: 65000,
+       stock3: 8 },
+
+  { brand1: "OnePlus",
+     model2: "11R",
+      price3: 45000, 
+      stock3: 10 },
+
+  { brand1: "Xiaomi",
+     model2: "Redmi Note 12",
+      price3: 18000,
+       stock3: 15 },
+
+  { brand1: "Realme",
+     model2: "Narzo 60",
+      price3: 15000,
+       stock3: 20 }
+
+];
+
+
+//1. Display all mobile names.
+
+
+console.log("Mobile Names:");
+
+mobiles.forEach(m => {
+  console.log(m.model2);
+});
+
+
+//2. Calculate total stock value.
+
+let totalValue4= mobiles.reduce(
+  (sum, m) => sum + (m.price3 * m.stock3),
+  0
+);
+
+
+console.log("Total Stock Value: ₹" + totalValue4);
+
+//3. Show mobiles above ₹20,000.
+
+console.log("Mobiles above ₹20,000:");
+
+mobiles.forEach(m => {
+  if (m.price3 > 20000) {
+    console.log(m.model2 + " - ₹" + m.price3);
+  }
+});
+
+
+//4. Use switch statement for brand category.
+
+
+mobiles.forEach(m => {
+  let category;
+
+  switch (m.brand1) {
+    case "Apple":
+      category = "Premium Brand";
+      break;
+    case "Samsung":
+      category = "High-End Android";
+      break;
+    case "OnePlus":
+      category = "Flagship Killer";
+      break;
+    case "Xiaomi":
+      category = "Budget Brand";
+      break;
+    case "Realme":
+      category = "Affordable Brand";
+      break;
+    default:
+      category = "Unknown Brand";
+  }
+
+  console.log(m.brand1 + " → " + category);
+});
+
+
+//5. Generate sales report using callback function.
+
+// callback function
+function salesReport(mobile) {
+  console.log(
+    `${mobile.model2} | ₹${mobile.price3} | Stock: ${mobile.stock3}`
+  );
+}
+
+// higher-order function
+function generateReport(list, callback) {
+  list.forEach(mobile => {
+    callback(mobile);
+  });
+}
+
+// call function
+generateReport(mobiles, salesReport);
+
+
+
 
