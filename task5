@@ -1,0 +1,72 @@
+// Task 1: Student Management System
+
+const students = [
+  {
+    id: 1,
+    name: "Arun",
+    department: "Computer Science",
+    mark: 95
+  },
+  {
+    id: 2,
+    name: "Surya",
+    department: "Electronics",
+    mark: 82
+  },
+  {
+    id: 3,
+    name: "Rahul",
+    department: "Mechanical",
+    mark: 74
+  },
+  {
+    id: 4,
+    name: "moorthi",
+    department: "Civil",
+    mark: 56
+  },
+  {
+    id: 5,
+    name: "Karthik",
+    department: "Information Technology",
+    mark: 45
+  }
+];
+
+// 1. Display all student names
+console.log("Student Names:");
+students.forEach(student => console.log(student.name));
+
+// 2. Calculate total marks
+const totalMarks = students.reduce((sum, student) => sum + student.mark, 0);
+console.log("Total Marks:", totalMarks);
+
+// 3. Find students who scored above 80
+const above80 = students.filter(student => student.mark > 80);
+console.log("Students Scoring Above 80:");
+above80.forEach(student => console.log(student.name));
+
+// 4. Function to determine grade
+function getGrade(mark) {
+  if (mark >= 90) return "A";
+  if (mark >= 75) return "B";
+  if (mark >= 50) return "C";
+  return "Fail";
+}
+
+// 5. Function to print student details
+function printStudentDetails(student) {
+  console.log(`
+ID: ${student.id}
+Name: ${student.name}
+Department: ${student.department}
+Mark: ${student.mark}
+Grade: ${getGrade(student.mark)}`);
+}
+
+console.log("Student Details:");
+students.forEach(printStudentDetails);
+
+
+// Task 2: Employee Payroll System
+
