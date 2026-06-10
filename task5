@@ -746,7 +746,14 @@ student7.forEach(s => {
 });
 
 
-//3. Eligibility check + count
+//2. Check eligibility:
+
+let eligible = student7.filter(s =>
+  (s.age || s.age4) >= 18 && s.percentage >= 60
+);
+
+
+//2.3. Eligibility check + count
 let eligibleCount = 0;
 
 console.log("Eligibility Result:");
