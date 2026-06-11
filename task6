@@ -1,0 +1,102 @@
+//1. Array
+
+
+let fruits = ["Apple", "Banana", "Orange"];
+
+console.log(fruits);
+console.log(fruits[0]); // Apple
+
+
+//2. object
+
+let fruits = ["Apple", "Banana", "Orange"];
+
+console.log(fruits);
+console.log(fruits[0]); // Apple
+
+
+//3.Function
+
+function greet() {
+    console.log("Hello World");
+}
+
+greet();
+
+
+
+
+//4. Return
+
+
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(5, 3);
+console.log(result);
+
+//5.. If Else
+
+
+let age = 20;
+
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+
+
+//6. Switch
+
+
+
+let day = 2;
+
+switch (day) {
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    default:
+        console.log("Invalid Day");
+}
+
+
+
+
+//7. For Loop
+
+
+
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+// 8. For...of Loop
+
+
+    let fruits = ["Apple", "Banana", "Orange"];
+
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+
+
+
+//9. Callback Function
+
+function greet(name, callback) {
+    console.log("Hello " + name);
+    callback();
+}
+
+function bye() {
+    console.log("Goodbye");
+}
+
+greet("John", bye);
