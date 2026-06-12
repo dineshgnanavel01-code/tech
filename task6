@@ -9,10 +9,14 @@ console.log(fruits[0]); // Apple
 
 //2. object
 
-let fruits = ["Apple", "Banana", "Orange"];
+let person = {
+    name: "John",
+    age: 25,
+    city: "Chennai"
+};
 
-console.log(fruits);
-console.log(fruits[0]); // Apple
+console.log(person.name);
+console.log(person.age);
 
 
 //3.Function

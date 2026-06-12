@@ -1,220 +1,184 @@
 // Task 1: Student Management System
 
-let students = [
-  {
-    id: 1,
-    name: "Arun",
-    department: "Computer Science",
-    mark: 95
-  },
-  {
-    id: 2,
-    name: "Surya",
-    department: "Electronics",
-    mark: 82
-  },
-  {
-    id: 3,
-    name: "Rahul",
-    department: "Mechanical",
-    mark: 74
-  },
-  {
-    id: 4,
-    name: "moorthi",
-    department: "Civil",
-    mark: 56
-  },
-  {
-    id: 5,
-    name: "Karthik",
-    department: "Information Technology",
-    mark: 45
-  }
+// Student Management System
+
+const students = [
+    {
+        id: 1,
+        name: "Arun",
+        department: "CSE",
+        mark: 95
+    },
+    {
+        id: 2,
+        name: "Priya",
+        department: "ECE",
+        mark: 82
+    },
+    {
+        id: 3,
+        name: "Karthik",
+        department: "IT",
+        mark: 68
+    },
+    {
+        id: 4,
+        name: "Divya",
+        department: "EEE",
+        mark: 45
+    }
 ];
 
-// 1. Display all student names
+// Display all student names
 console.log("Student Names:");
-students.forEach(student => console.log(student.name));
-
-// 2. Calculate total marks
-let totalMarks = students.reduce((sum, student) => sum + student.mark, 0);
-console.log("Total Marks:", totalMarks);
-
-// 3. Find students who scored above 80
-let above80 = students.filter(student => student.mark > 80);
-console.log("Students Scoring Above 80:");
-above80.forEach(student => console.log(student.name));
-
-// 4. Function to determine grade
-function getGrade(mark) {
-  if (mark >= 90) return "A";
-  if (mark >= 75) return "B";
-  if (mark >= 50) return "C";
-  return "Fail";
+for (let student of students) {
+    console.log(student.name);
 }
 
-// 5. Function to print student details
+// Calculate total marks
+let totalMarks = 0;
 
-function printStudents(list) {
-  list.forEach(student => {
+for (let student of students) {
+    totalMarks += student.mark;
+}
+
+console.log("Total Marks:", totalMarks);
+
+// Find students who scored above 80
+console.log("Students Scored Above 80:");
+
+for (let student of students) {
+    if (student.mark > 80) {
+        console.log(student.name, "-", student.mark);
+    }
+}
+
+// Function to get grade
+function getGrade(mark) {
+    if (mark >= 90) {
+        return "A";
+    } else if (mark >= 75) {
+        return "B";
+    } else if (mark >= 50) {
+        return "C";
+    } else {
+        return "Fail";
+    }
+}
+
+// Function to print student details
+function printStudentDetails(student) {
+    console.log("----------------------");
     console.log("ID:", student.id);
     console.log("Name:", student.name);
     console.log("Department:", student.department);
     console.log("Mark:", student.mark);
-    console.log("----------------------");
-  });
+    console.log("Grade:", getGrade(student.mark));
 }
 
-// Call function
-printStudents(students);
+// Print all student details
+console.log("\nStudent Details:");
+
+for (let student of students) {
+    printStudentDetails(student);
+}
 
 // Task 2: Employee Payroll System
+// Online Food Order System
 
-
-let employees = [
-  {
-    id2 : 101,
-    name2: "Ravi",
-    salary: 45000,
-    department1: "IT"
-  },
-  {
-    id3: 102,
-    name3: "Praveen",
-    salary: 28000,
-    department2: "HR"
-  },
-  {
-    id4: 103,
-    name4: "Arun",
-    salary: 35000,
-    department3: "Finance"
-  },
-  {
-    id5: 104,
-    name5: "Dharani",
-    salary: 50000,
-    department4: "IT"
-  },
-  {
-    id6: 105,
-    name6: "Karthik",
-    salary: 25000,
-    department5: "Marketing"
-  }
+const foods = [
+    {
+        id: 1,
+        foodName: "Chicken Biryani",
+        price: 250,
+        category: "Main Course"
+    },
+    {
+        id: 2,
+        foodName: "Veg Fried Rice",
+        price: 180,
+        category: "Main Course"
+    },
+    {
+        id: 3,
+        foodName: "Pizza",
+        price: 350,
+        category: "Fast Food"
+    },
+    {
+        id: 4,
+        foodName: "Ice Cream",
+        price: 120,
+        category: "Dessert"
+    }
 ];
 
-// 1.Print all employee names.
+// Display all food names
 
-employees.forEach(emp => {
-let name =
-    emp.name2 ||
-    emp.name3 ||
-    emp.name4 ||
-    emp.name5 ||
-    emp.name6;
+console.log("Food Names:");
+for (let food of foods) {
+    console.log(food.foodName);
+}
 
-  console.log(name);
-});
+// Calculate total menu value
+let totalMenuValue = 0;
 
-//2. Calculate total company salary expense.
+for (let food of foods) {
+    totalMenuValue += food.price;
+}
 
-let totalSalaryExpense = employees.reduce(
-(total, employee) => total + employee.salary, 0
+console.log("Total Menu Value: ₹" + totalMenuValue);
 
-);
-console.log("Total Company Salary Expense: ₹" + totalSalaryExpense);
+// Show foods above ₹200
+console.log("\nFoods Above ₹200:");
 
-
-//3. Display employees earning above ₹30,000.
-
-
-employees.forEach(emp => {
-  if (emp.salary > 30000) {
-    let  name = Object.keys(emp)
-      .find(key => key.startsWith("name"));
-
-    console.log(`${emp[name]} - ₹${emp.salary}`);
-  }
-});
-
-
-//4.Use switch statement for department descriptions.
-
-for (let emp of employees) {
-
-  let dept = Object.values(emp).find(
-    value => value === "IT" || value === "HR" || value === "Finance" || value === "Marketing"
-  );
-  let name = Object.values(emp).find(value => typeof value === "string" && value !== dept);
-
-if (emp.salary > 30000) {
-
-    switch (dept) {
-      case "IT":
-        dept = "IT Department";
-        break;
-      case "HR":
-        dept = "HR Department";
-        break;
-      case "Finance":
-        dept = "Finance Department";
-        break;
-      case "Marketing":
-        dept = "Marketing Department";
-        break;
+for (let food of foods) {
+    if (food.price > 200) {
+        console.log(food.foodName + " - ₹" + food.price);
     }
-
-    console.log("Employee:", name);
-    console.log("Salary: ₹" + emp.salary);
-    console.log("Department:", dept);
-    console.log("------------------");
-  }
 }
 
-// 5. Create a callback function to generate payroll reports.
-
-function payrollReport(emp) {
-
-  let  nameKey = Object.keys(emp).find(key => key.startsWith("name"));
-  let  deptKey = Object.keys(emp).find(key => key.startsWith("department"));
-
-  let  name = emp[nameKey];
-  let  dept = emp[deptKey];
-
-  let deptDesc;
-
-  switch (dept) {
-    case "IT":
-      deptDesc = "Information Technology";
-      break;
-    case "HR":
-      deptDesc = "Human Resources";
-      break;
-    case "Finance":
-      deptDesc = "Finance Department";
-      break;
-    case "Marketing":
-      deptDesc = "Marketing Department";
-      break;
-    default:
-      deptDesc = "Unknown Department";
-  }
-
-  console.log(`${name} | ₹${emp.salary} | ${deptDesc}`);
+// Category Description using Switch
+function getCategoryDescription(category) {
+    switch (category) {
+        case "Main Course":
+            return "Full meal items";
+        case "Fast Food":
+            return "Quick snack items";
+        case "Dessert":
+            return "Sweet dishes";
+        default:
+            return "Other food category";
+    }
 }
 
-// higher-order function
-function generatePayroll(employees, callback) {
-  for (let emp of employees) {
-    callback(emp);
-  }
+console.log("\nFood Categories:");
+
+for (let food of foods) {
+    console.log(
+        food.foodName +
+        " : " +
+        getCategoryDescription(food.category)
+    );
 }
 
-// call function
-generatePayroll(employees, payrollReport);
+// Order Confirmation Callback Function
+function placeOrder(foodItem, callback) {
+    console.log("\nProcessing Order...");
+    callback(foodItem);
+}
 
+function orderConfirmation(foodItem) {
+    console.log(
+        "Order Confirmed! " +
+        foodItem.foodName +
+        " has been ordered for ₹" +
+        foodItem.price
+    );
+}
+
+// Place Order
+placeOrder(foods[0], orderConfirmation);
 
 //Task 3: Online Food Order Syste
 
