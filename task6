@@ -1,10 +1,10 @@
 //1. Array
 
 
-let fruits = ["Apple", "Banana", "Orange"];
+let fruit1 = ["Apple", "Banana", "Orange"];
 
-console.log(fruits);
-console.log(fruits[0]); // Apple
+console.log(fruit1);
+console.log(fruit1[0]);
 
 
 //2. object
@@ -40,8 +40,8 @@ function add(a, b) {
 let result = add(5, 3);
 console.log(result);
 
-//5.. If Else
 
+//5.. If Else
 
 let age = 20;
 
@@ -81,6 +81,7 @@ switch (day) {
 for (let i = 1; i <= 5; i++) {
     console.log(i);
 }
+
 // 8. For...of Loop
 
 
@@ -104,3 +105,10 @@ function bye() {
 }
 
 greet("John", bye);
+
+
+// 10.console.log()
+
+console.log("Hello World");
+console.log(100);
+console.log(true);
