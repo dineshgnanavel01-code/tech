@@ -170,28 +170,23 @@ console.log("Experience:", experience);
 
 // Task 12: Product Inventory Filter
 
-
 let products = [
-
   { name: "Laptop", price: 55000, category: "Electronics" },
   { name: "Smartphone", price: 25000, category: "Electronics" },
   { name: "Headphones", price: 3000, category: "Accessories" },
   { name: "Washing Machine", price: 15000, category: "Home Appliances" },
   { name: "Book", price: 500, category: "Stationery" }
-];  
+];
 
-let filterProducts = products.filter(product => product.price > 5000);
+let expensiveProducts = products.filter(product => product.price > 5000);
 
-console.log("Products above ₹5000:");
+expensiveProducts.forEach(product => console.log(product));
 
-filterProducts.forEach(product => {
-  console.log(`${product.name} - ₹${product.price} (${product.category})`);
-});
 
 
 //Task 13: Find First Premium Customer
 
-let customers = [
+let  customers = [
   { name: "Arun", purchaseAmount: 30000 },
   { name: "Priya", purchaseAmount: 45000 },
   { name: "Kumar", purchaseAmount: 60000 },
@@ -199,13 +194,9 @@ let customers = [
 ];
 
 
-const highValueCustomer = customers.find(customer => customer.purchaseAmount > 50000);
+let highValueCustomer = customers.find(customer => customer.purchaseAmount > 50000);
 
-if (highValueCustomer) {
-  console.log("First customer exceeding ₹50,000:", highValueCustomer.name, "-", highValueCustomer.purchaseAmount);
-} else {
-  console.log("No customer found with purchase amount above ₹50,000.");
-}
+console.log(highValueCustomer);
 
 
 
