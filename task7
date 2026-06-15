@@ -1,0 +1,297 @@
+// Task 1: Traffic Signal Management
+
+let signalColor = ("red");
+
+switch (signalColor) {
+    case "red":
+        console.log("Stop");
+        break;
+
+    case "yellow":
+        console.log("Get Ready");
+        break;
+
+    case "green":
+        console.log("Go");
+        break;
+
+    default:
+        console.log("Invalid signal color");
+}
+
+
+// Task 2: Employee Attendance Report
+
+for (let i = 1; i <= 30; i++) {
+    console.log("Employee " + i + " Present");
+}
+
+//Task 3: ATM Cash Withdrawal
+let balance = 10000;   
+let withdrawal = 500; 
+
+while (balance > 0) {
+    balance -= withdrawal; // Deduct withdrawal
+    console.log("Remaining Balance: ₹" + balance);
+}
+
+// Task 4: College Admission Eligibility
+
+let age = 17;
+let percentage = 75;
+let entrancePassed = false;
+
+if (age >= 18) {
+    if (percentage >= 70) {
+        if (entrancePassed === true) {
+            console.log("Admission Granted");
+        } else {
+            console.log("Admission Rejected: Entrance Exam not passed");
+        }
+    } else {
+        console.log("Admission Rejected: Percentage is less than 70%");
+    }
+} else {
+    console.log("Admission Rejected: Age is less than 18");
+}
+    
+
+//Task 5: Food Delivery Status
+
+
+function deliveryConfirmation(customerName, foodItem, deliveryAddress) {
+    console.log("Delivery Confirmation:");
+    console.log("Customer: " + customerName);
+    console.log("Food Item: " + foodItem);
+    console.log("Delivery Address: " + deliveryAddress);
+    console.log("Your order has been dispatched successfully!");
+}
+deliveryConfirmation("Dinesh", "Pizza", "123, Omalur");
+
+// Task 6: Salary Processing System
+
+let mySalary = calculateSalary(30000, 5000); 
+let myBonus = calculateBonus(mySalary); 
+
+
+function calculateSalary(base,allowance) {
+    let salary = 30000 + 5000;
+    return salary;
+}
+
+function calculateBonus(salary) {
+    let bonus = salary * 0.10;
+    return bonus;
+}
+
+console.log("Salary: ₹" + mySalary);
+console.log("Bonus: ₹" + myBonus);
+
+
+// Task 7: E-commerce Discount Engine
+function applyDiscount(amount, callback) {
+    console.log("Calculating discount...");
+
+    let discountedAmount = amount - (amount * 0.10); 
+    callback(discountedAmount);
+}
+
+function generateInvoice(finalAmount) {
+    console.log("Generating invoice...");
+    console.log("Final Amount: $" + finalAmount);
+}
+
+
+applyDiscount(1000, generateInvoice);
+
+// Task 8: Promotional Offers
+function* gen() {
+  yield "10% OFF";
+  yield "20% OFF";
+  yield "Free Delivery";
+  yield "Buy 1 Get 1";
+}
+
+
+let offers = gen();
+
+console.log(offers.next().value); 
+console.log(offers.next().value); 
+console.log(offers.next().value); 
+console.log(offers.next().value); 
+console.log(offers.next().value);
+
+
+//Task 9: Student Database Merge
+
+let scienceStudents = ["Alice", "Bob"];
+let commerceStudents = ["Charlie", "David"];
+
+const studentDatabase = [...scienceStudents, ...commerceStudents];
+
+console.log(studentDatabase);
+
+// Task 10: Online Exam System
+
+function calculateTotalMarks(studentName, ...marks) {
+    
+    let total = marks.reduce((sum, mark) => sum + mark, 0);
+
+   
+    console.log("--- Student Report ---");
+    console.log("Name: " + studentName);
+    marks.forEach((mark, index) => {
+        console.log("Subject " + (index + 1) + ": " + mark);
+    });
+    console.log("Total Marks: " + total);
+}
+
+
+calculateTotalMarks("Dinesh", 85, 90, 78, 92, 88);
+
+
+// Task 11: Employee Profile
+
+
+let obj1={
+  name:"John",
+  department: "IT",
+  Salary : 30000,
+  experience: 3
+};
+let {name,department,Salary,experience}= obj1;
+
+console.log("Name:", name);
+console.log("Department:", department);
+console.log("Salary:", Salary);
+console.log("Experience:", experience);
+
+
+
+// Task 12: Product Inventory Filter
+
+
+let products = [
+
+  { name: "Laptop", price: 55000, category: "Electronics" },
+  { name: "Smartphone", price: 25000, category: "Electronics" },
+  { name: "Headphones", price: 3000, category: "Accessories" },
+  { name: "Washing Machine", price: 15000, category: "Home Appliances" },
+  { name: "Book", price: 500, category: "Stationery" }
+];  
+
+let filterProducts = products.filter(product => product.price > 5000);
+
+console.log("Products above ₹5000:");
+
+filterProducts.forEach(product => {
+  console.log(`${product.name} - ₹${product.price} (${product.category})`);
+});
+
+
+//Task 13: Find First Premium Customer
+
+let customers = [
+  { name: "Arun", purchaseAmount: 30000 },
+  { name: "Priya", purchaseAmount: 45000 },
+  { name: "Kumar", purchaseAmount: 60000 },
+  { name: "Meena", purchaseAmount: 75000 }
+];
+
+
+const highValueCustomer = customers.find(customer => customer.purchaseAmount > 50000);
+
+if (highValueCustomer) {
+  console.log("First customer exceeding ₹50,000:", highValueCustomer.name, "-", highValueCustomer.purchaseAmount);
+} else {
+  console.log("No customer found with purchase amount above ₹50,000.");
+}
+
+
+
+//Task 14: Company Expense Tracker
+
+
+let  expenses = [1200, 500, 3000, 750, 1500];
+
+
+let  totalExpenses = expenses.reduce((total, expense) => total + expense, 0);
+
+console.log("Total Company Expenses:", totalExpenses);
+
+
+//Task 15: Gaming Tournament Verification
+
+
+let  players = [
+  { name: "Arun", age: 20 },
+  { name: "Priya", age: 22 },
+  { name: "Kumar", age: 19 },
+  { name: "Meena", age: 25 }
+];
+
+let allAbove18 = players.every(player => player.age > 18);
+
+console.log(allAbove18); 
+
+// Task 16: Job Portal Search
+
+let candidates = [
+  { name: "Arun", skills: ["HTML", "CSS", "JavaScript"] },
+  { name: "Priya", skills: ["Python", "Django"] },
+  { name: "Kumar", skills: ["React", "Node.js"] },
+  { name: "Meena", skills: ["Angular", "TypeScript"] }
+];
+
+
+let knowsReact = candidates.some(candidate => candidate.skills.includes("React"));
+console.log(knowsReact);
+
+//Task 17: Mobile Number Validator
+
+let mobile = "9876543210";
+
+if (
+    mobile.length === 10 &&
+    (
+        mobile.startsWith("6") ||
+        mobile.startsWith("7") ||
+        mobile.startsWith("8") ||
+        mobile.startsWith("9")
+    )
+) {
+    console.log("Valid Mobile Number");
+} else {
+    console.log("Invalid Mobile Number");
+}
+
+
+// 
+// 
+// Task 18: URL Slug Generator
+
+
+let URL = "learn-javascript-complete-course"
+
+console.log(URL.split(" - "));
+
+//Task 19: Employee Sorting Dashboard
+
+let employees = [5000, 3000, 6000, 4000, 9000, 8000, 4600];
+
+// Ascending order (lowest → highest)
+employees.sort((a, b) => a - b);
+console.log("Ascending:", employees);
+
+// Descending order (highest → lowest)
+employees.sort((a, b) => b - a);
+console.log("Descending:", employees);
+
+
+// Task 20: Movie Booking System
+let movies = ["Avatar", "Inception", "Interstellar", "Dune"];
+
+let bookingIds = movies.map((movie, index) => movie + "-" + (index + 1));
+
+console.log(bookingIds);
+
