@@ -36,7 +36,7 @@ function checkAdmission(student) {
 }
 
 // Object
-const student = {
+let student = {
     name: "John",
     age: 20,
     percentage: 75
