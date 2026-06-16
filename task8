@@ -174,9 +174,9 @@ console.log("Check Balance: ", checkBalance());
 
 // Task 8: Movie Ticket Booking
 
-let bookedSeats = [];
+let bookedSeats = [1,2,5,7,9];
 
-// Function to book a seat
+//  book a seat
 function bookSeat(seatNumber) {
     if (bookedSeats.includes(seatNumber)) {
         console.log("Seat " + seatNumber + " is already booked.");
@@ -187,7 +187,7 @@ function bookSeat(seatNumber) {
     return bookedSeats;
 }
 
-// Function to check seat availability
+// check seat availability
 function checkSeat(seatNumber) {
     if (bookedSeats.includes(seatNumber)) {
         return "Seat " + seatNumber + " is NOT available.";
@@ -196,7 +196,7 @@ function checkSeat(seatNumber) {
     }
 }
 
-// Function to print all booked seats
+//  print all booked seats
 function printBookedSeats() {
     console.log("Booked Seats:");
     for (let i = 0; i < bookedSeats.length; i++) {
@@ -217,12 +217,12 @@ printBookedSeats();
 // Task 9: User Login Validation
 
 function validateUser(username, password, email) {
-  // Check username: should not contain spaces
+  //  username: should not contain spaces
   if (username.includes(" ")) {
     return "Invalid: Username should not contain spaces.";
   }
 
-  // Check password: minimum 8 characters
+  //  password: minimum 8 characters
   if (password.length < 8) {
     return "Invalid: Password must be at least 8 characters.";
   }
@@ -256,7 +256,7 @@ fetch("https://fakestoreapi.com/products")
     });
 
     // Find products above ₹1000
-    const expensiveProducts = products.filter(
+   let expensiveProducts = products.filter(
       (product) => product.price > 1000
     );
 
@@ -308,9 +308,31 @@ let benefits = plan === "Mobile" ? "Benefits: Single device access, low cost"
 console.log("Selected Plan: " + plan);
 console.log(benefits);
 
+// Task 13: Hospital Patient Management
 
-//Task 13: Hospital Patient Management
+let patients = [
+  { id: 1, name: "Arun", critical: true },
+  { id: 2, name: "Meena", critical: false },
+  { id: 3, name: "Ravi", critical: true },
+  { id: 4, name: "Priya", critical: false }
+];
 
+// 1️ Find critical patients (filter)
+let criticalPatients = patients.filter(patient => patient.critical);
+console.log("Critical Patients:", criticalPatients);
+
+// 2️ Find patient by ID (find)
+let patientById = patients.find(patient => patient.id === 3);
+console.log("Patient with ID 3:", patientById);
+
+// 3️ Count total patients (length)
+let totalPatients = patients.length;
+console.log("Total Patients:", totalPatients);
+
+
+
+
+// Task 14: Inventory Management System
 let inventoryA = [
   { id: 1, name: "Laptop", quantity: 10, price: 50000 },
   { id: 2, name: "Mouse", quantity: 50, price: 500 }
@@ -326,16 +348,16 @@ let mergedInventory = [...inventoryA, ...inventoryB];
 
 console.log("Merged Inventory:", mergedInventory);
 
-// Take the first product from mergedInventory
+//  first product from mergedInventory
 let [firstProduct] = mergedInventory;
 
 // Destructure properties
 let { id, name, quantity, price } = firstProduct;
 
-console.log(`Product ID: ${id}`);
-console.log(`Name: ${name}`);
-console.log(`Quantity: ${quantity}`);
-console.log(`Price: ₹${price}`);
+console.log("Product ID:", id );
+console.log("Name:", name);
+console.log("Quantity: " ,quantity);
+console.log("Price: ", price);
 
 let newProducts = [
   { id: 5, name: "Headphones", quantity: 15, price: 2500 },
@@ -355,7 +377,7 @@ let group = ["Arun", "Bala", "Chitra"];
 
 console.log("Initial group:", group);
 
-// 1. Add members
+// 1. Add members,
 
 group.push("Deepa");          
 group.unshift("Anand");      
