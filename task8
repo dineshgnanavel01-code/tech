@@ -1,0 +1,376 @@
+// Task 1: Employee Salary Management
+
+let employees = [
+  { id: 1, name: "Rahul", salary: 25000 },
+  { id: 2, name: "Kavin", salary: 50000 },
+  { id: 3, name: "John", salary: 75000 }
+];
+
+// 1 Find employees whose salary is above ₹40,000
+let highEarners = employees.filter(emp => emp.salary > 40000);
+console.log("Employees with salary > 40,000:", highEarners);
+
+// 2 Find the first employee whose salary is above ₹60,000
+let firstHighEarner = employees.find(emp => emp.salary > 60000);
+console.log("First employee with salary > 60,000:", firstHighEarner);
+
+// 3 Calculate total company salary expense
+let totalSalary = employees.reduce((acc, emp) => acc + emp.salary, 0);
+console.log("Total company salary expense:", totalSalary);
+
+// 4 Create a new array containing only employee names
+let employeeNames = employees.map(emp => emp.name);
+console.log("Employee Names:", employeeNames);
+
+
+
+
+// Task 2: College Admission Form
+
+function checkAdmission(student) {
+    if (student.age >= 18 && student.percentage >= 60) {
+        return "Admission Approved";
+    } else {
+        return "Admission Rejected";
+    }
+}
+
+// Object
+const student = {
+    name: "John",
+    age: 20,
+    percentage: 75
+};
+
+// Function Call
+console.log("Name:", student.name);
+console.log("Age:", student.age);
+console.log("Percentage:", student.percentage);
+console.log("Status:", checkAdmission(student));
+
+
+// Task 3: E-Commerce Cart
+
+let cart = [
+  { product: "Shoes", price: 2000, qty: 2 },
+  { product: "Watch", price: 1500, qty: 1 },
+  { product: "Bag", price: 1000, qty: 3 }
+];
+
+// 1. Calculate total bill
+let totalBill = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+console.log("Total Bill:", totalBill);
+
+// 2. Find the most expensive product (by price)
+let mostExpensive = cart.reduce((previous, current) => 
+  previous.price > current.price ? previous : currrrent
+);
+console.log("Most Expensive Product:", mostExpensive.product);
+
+// 3. Display all product names
+let productNames = cart.map(item => item.product);
+console.log("Product Names:", productNames);
+
+
+//Task 4: Traffic Fine System
+
+let signal =  ("red", "yellow", "green");
+
+switch (signal) {
+    case "red":
+        console.log("Action: STOP");
+        console.log("Fine for violation: ₹1000");
+        break;
+
+    case "yellow":
+        console.log("Action: WAIT");
+        console.log("Fine for violation: ₹500");
+        break;
+
+    case "green":
+        console.log("Action: GO");
+        console.log("Fine for violation: ₹0");
+        break;
+
+    default:
+        console.log("Invalid signal color");
+}
+
+
+
+// Task 5: Student Result Processing
+
+
+let Students =
+students = [
+  { name: "A", mark: 95 },
+  { name: "B", mark: 45 },
+  { name: "C", mark: 80 },
+  { name: "D", mark: 30 }
+];
+
+// 1 Find Passed Students (mark >= 50)
+let passedStudents = students.filter(stu => stu.mark >= 50);
+console.log("Passed Students:", passedStudents);
+
+// 2 Find Failed Students (mark < 50)
+let failedStudents = students.filter(stu => stu.mark < 50);
+console.log("Failed Students:", failedStudents);
+
+// 3 Create Grade List
+let gradeList = students.map(stu => {
+  return {
+    name: stu.name,
+    mark: stu.mark,
+    grade: stu.mark >= 90 ? "A" :
+           stu.mark >= 75 ? "B" :
+           stu.mark >= 50 ? "C" : "Fail"
+  };
+});
+
+console.table(gradeList);
+
+// Task 6: Online Food Delivery
+
+
+// Order Function
+function placeOrder(customerName, ...items) {
+  console.log("Customer Name:", customerName);
+  console.log("Ordered Items:", items);
+  console.log("Item Count:", items.length);
+}
+
+
+placeOrder("Dinesh", "Pizza", "Burger", "Coke");
+placeOrder("Rahul", "Sandwich", "Juice");
+
+
+// Task 7: Bank Account System
+
+let balance = 0;
+
+function deposit(amount) {
+    balance += amount;
+    return balance;
+}
+
+function withdraw(amount) {
+    if (amount > balance) {
+        return "Insufficient Balance";
+    }
+    balance -= amount;
+    return balance;
+}
+
+function checkBalance() {
+    return balance;
+}
+
+console.log("Deposit 1000: ", deposit(1000));  
+console.log("Withdraw 500: ", withdraw(500));  
+console.log("Withdraw 700: ", withdraw(700));  
+console.log("Check Balance: ", checkBalance());
+
+
+// Task 8: Movie Ticket Booking
+
+let bookedSeats = [];
+
+// Function to book a seat
+function bookSeat(seatNumber) {
+    if (bookedSeats.includes(seatNumber)) {
+        console.log("Seat " + seatNumber + " is already booked.");
+    } else {
+        bookedSeats.push(seatNumber);
+        console.log("Seat " + seatNumber + " booked successfully.");
+    }
+    return bookedSeats;
+}
+
+// Function to check seat availability
+function checkSeat(seatNumber) {
+    if (bookedSeats.includes(seatNumber)) {
+        return "Seat " + seatNumber + " is NOT available.";
+    } else {
+        return "Seat " + seatNumber + " is available.";
+    }
+}
+
+// Function to print all booked seats
+function printBookedSeats() {
+    console.log("Booked Seats:");
+    for (let i = 0; i < bookedSeats.length; i++) {
+        console.log("Seat " + bookedSeats[i]);
+    }
+}
+
+
+bookSeat(1);
+bookSeat(2);
+bookSeat(5);
+console.log(checkSeat(2));  
+console.log(checkSeat(3));  
+printBookedSeats();         
+
+
+
+// Task 9: User Login Validation
+
+function validateUser(username, password, email) {
+  // Check username: should not contain spaces
+  if (username.includes(" ")) {
+    return "Invalid: Username should not contain spaces.";
+  }
+
+  // Check password: minimum 8 characters
+  if (password.length < 8) {
+    return "Invalid: Password must be at least 8 characters.";
+  }
+
+  // Check email: must contain "@"
+  if (!email.includes("@")) {
+    return "Invalid: Email must contain '@'.";
+  }
+
+  return "All inputs are valid!";
+}
+
+
+console.log(validateUser("DineshG", "mypassword", "dinesh@example.com")); 
+console.log(validateUser("Dinesh G", "mypassword", "dinesh@example.com")); 
+console.log(validateUser("DineshG", "short", "dinesh@example.com")); 
+console.log(validateUser("DineshG", "mypassword", "dineshexample.com")); 
+
+
+// Task 10: Product API Dashboard
+
+
+fetch("https://fakestoreapi.com/products")
+  .then((response) => response.json())
+  .then((products) => {
+
+    // Display product titles
+    console.log("Product Titles:");
+    products.forEach((product) => {
+      console.log(product.title);
+    });
+
+    // Find products above ₹1000
+    const expensiveProducts = products.filter(
+      (product) => product.price > 1000
+    );
+
+    console.log("Products Above ₹1000:");
+    expensiveProducts.forEach((product) => {
+      console.log(product.title, "- ₹" + product.price);
+    });
+
+    // Count total products
+    console.log("Total Products:", products.length);
+  })
+  .catch((error) => {
+    console.error("Error fetching products:", error);
+  });
+
+
+  // Task 11: Birthday Day Finder
+
+
+let dobInput = "1998-07-15";
+let dateofbirth = new Date(dobInput);
+
+// Extract details
+let day = dateofbirth.getDate();
+let month = dateofbirth.getMonth() + 1;
+let year = dateofbirth.getFullYear();
+
+let weekdayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let weekday = weekdayName[dateofbirth.getDay()];
+
+console.log("Day:", day);
+console.log("Month:", month);
+console.log("Year:", year);
+console.log("Weekday:", weekday);
+
+
+//Task 12: Netflix Subscription System
+
+// User enters plan
+let plan = ("Enter your plan: Mobile, Basic, Standard, Premium");
+
+// Display plan benefits using ternary operator
+let benefits = plan === "Mobile" ? "Benefits: Single device access, low cost"
+             : plan === "Basic" ? "Benefits: Watch on 1 screen, SD quality"
+             : plan === "Standard" ? "Benefits: Watch on 2 screens, HD quality"
+             : plan === "Premium" ? "Benefits: Watch on 4 screens, Ultra HD quality"
+             : "Invalid plan entered";
+
+console.log("Selected Plan: " + plan);
+console.log(benefits);
+
+
+//Task 13: Hospital Patient Management
+
+let inventoryA = [
+  { id: 1, name: "Laptop", quantity: 10, price: 50000 },
+  { id: 2, name: "Mouse", quantity: 50, price: 500 }
+];
+
+let inventoryB = [
+  { id: 3, name: "Keyboard", quantity: 30, price: 1500 },
+  { id: 4, name: "Monitor", quantity: 20, price: 12000 }
+];
+
+// Merge using spread operator
+let mergedInventory = [...inventoryA, ...inventoryB];
+
+console.log("Merged Inventory:", mergedInventory);
+
+// Take the first product from mergedInventory
+let [firstProduct] = mergedInventory;
+
+// Destructure properties
+let { id, name, quantity, price } = firstProduct;
+
+console.log(`Product ID: ${id}`);
+console.log(`Name: ${name}`);
+console.log(`Quantity: ${quantity}`);
+console.log(`Price: ₹${price}`);
+
+let newProducts = [
+  { id: 5, name: "Headphones", quantity: 15, price: 2500 },
+  { id: 6, name: "Webcam", quantity: 10, price: 4000 }
+];
+
+// Add new products to mergedInventory
+let updatedInventory = [...mergedInventory, ...newProducts];
+
+console.log("Updated Inventory:", updatedInventory);
+
+
+
+// 15. WhatsApp Group Management
+
+let group = ["Arun", "Bala", "Chitra"];
+
+console.log("Initial group:", group);
+
+// 1. Add members
+
+group.push("Deepa");          
+group.unshift("Anand");      
+console.log("After adding:", group);
+
+// 2. Remove members
+group.pop();                  
+group.shift();                
+console.log("After removing:", group);
+
+// 3. Insert member at specific position
+group.splice(1, 0, "Eshwar"); 
+console.log("After inserting:", group);
+
+// 4. Display final group list
+console.log("Final group list:", group);
+
+
