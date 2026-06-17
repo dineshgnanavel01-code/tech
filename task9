@@ -1,0 +1,109 @@
+// 1. Fetch Products from API
+//2. Product Card Should Show
+// 3. Search Product
+let products = ["shirt", "t-shirt", "jeans", "formal shirt", "shoes"];
+
+let search = "shirt";
+
+let result = products.filter(product =>
+  product.includes(search)
+);
+
+console.log(result);
+  
+
+// 4. Category Filter
+
+let products1 = [
+  { id: 1, name: "Leather Jacket", category: "men" },
+  { id: 2, name: "Summer Dress", category: "women" },
+  { id: 3, name: "Wireless Headphones", category: "electronics" },
+  { id: 4, name: "Gold Necklace", category: "jewellery" },
+  { id: 5, name: "Running Shoes", category: "men" }
+];
+
+function filterProducts(category) {
+  return category === "all"
+    return  products1
+    return  products1.filter(product => product.category === category);
+}
+
+console.log(filterProducts("electronics"));
+
+// 5. Product Statistics
+
+// Array of products
+let products2 = [
+  { name: "Laptop", price: 1200 },
+  { name: "Mouse", price: 25 },
+  { name: "Keyboard", price: 75 },
+  { name: "Monitor", price: 300 }
+];
+
+// reduce() 
+let total = products2.reduce((accumulator, current) => accumulator + current.price, 0);
+console.log(total); 
+
+
+
+// find() 
+let users = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" },
+  { id: 4, name: "David" }
+];
+
+let user = users.find(u => u.id > 2);
+console.log(user); 
+
+
+
+//  sort() → sorts alphabetically
+let fruits = ["banana", "apple", "orange"];
+fruits.sort();
+console.log(fruits); 
+
+
+//6. Add to Cart
+let cart = ["mobile", "laptop", "Printer"];
+cart.push("Tab");
+console.log(cart);
+
+
+// 7. Remove From Cart
+
+let cart3 = [
+  { id: 101, name: "Wireless Mouse", price: 25, quantity: 1 },
+  { id: 102, name: "Mechanical Keyboard", price: 80, quantity: 1 }
+];
+
+let itemIdToRemove = 101;
+
+let updatedCart = cart3.filter(item => item.id !== itemIdToRemove);
+
+console.log(updatedCart);
+
+// 8. Loading State
+
+
+console.log("Loading Products...");
+
+setTimeout(() => {
+  console.log("Products Loaded Successfully");
+}, 2000);
+
+////  Team Distribution in JavaScript
+
+// Member 1: API Integration
+function fetchProducts() {
+  fetch("https://fakestoreapi.com/products")
+    .then(response => response.json())
+    .then(data => {
+      console.log(" Products fetched:", data);
+      
+    })
+    .catch(error => {
+      console.error(" Error fetching products:", error);
+    });
+}
