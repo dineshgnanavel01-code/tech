@@ -1,0 +1,40 @@
+
+
+ body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    
+    h1{
+        text-align: center;
+        justify-content: center;
+        background-color: yellow;
+        border-radius: 10px ;
+        box-shadow: 5px 5px 20px 20px lightgoldenrodyellow;
+      
+    }
+
+    #products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+        
+       
+    }
+
+    .product {
+        border: 5px solid black;
+        box-shadow: 5px 5px 20px 20px white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: aqua;
+    }
+
+    .product img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        box-shadow: 5px 5px 20px 20px white;
+    }
