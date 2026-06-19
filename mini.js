@@ -31,8 +31,7 @@ function displayProducts(data) {
         <button onclick="addToCart(${product.id})">
           Add To Cart
         </button>
-      </div>
-    `;
+      </div> `;
   });
 }
 
@@ -51,7 +50,7 @@ function loadCategories() {
 }
 
 searchInput.addEventListener("input", () => {
-  const value = searchInput.value.toLowerCase();
+ let value = searchInput.value.toLowerCase();
 
   const filtered = products.filter(product =>
     product.title.toLowerCase().includes(value)
@@ -61,14 +60,14 @@ searchInput.addEventListener("input", () => {
 });
 
 categoryFilter.addEventListener("change", () => {
-  const category = categoryFilter.value;
+   let category = categoryFilter.value;
 
   if(category === "all"){
     displayProducts(products);
     return;
   }
 
-  const filtered = products.filter(
+   let filtered = products.filter(
     product => product.category === category
   );
 
@@ -76,7 +75,7 @@ categoryFilter.addEventListener("change", () => {
 });
 
 function addToCart(id){
-  const item = products.find(
+   let item = products.find(
     product => product.id === id
   );
 
